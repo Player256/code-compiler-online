@@ -5,7 +5,7 @@ import 'codemirror/keymap/sublime';
 import 'codemirror/theme/dracula.css';
 import CodeMirror from '@uiw/react-codemirror';
 
-const Editor = () => {
+const Editor = ({language}) => {
   const [code, setCode] = useState('');
   const [compiled, setCompiled] = useState('');
 
@@ -27,7 +27,7 @@ const Editor = () => {
             options={{
               theme: 'dracula',
               keyMap: 'sublime',
-              mode: 'python',
+              mode: {language},
             }}
             onChange={(editor, data, value) => {
               setCode(editor.getValue());

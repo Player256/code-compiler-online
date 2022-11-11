@@ -1,16 +1,8 @@
-import React, { useContext , useState} from 'react';
+import React, { useContext, useState } from 'react';
 import { createPopper } from '@popperjs/core';
 
-export const selectContext = React.createContext();
-
-
-const Dropdown = ({ color }) => {
-
-
- 
-    
-
-  const [selected , setSelected] = useState("");
+const Dropdown = (props) => {
+  const [selected, setSelected] = useState('');
 
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
 
@@ -31,23 +23,20 @@ const Dropdown = ({ color }) => {
     setDropdownPopoverShow(false);
   };
 
+  let bgColor = 'bg-slate-700';
   
-  let bgColor;
-  color === 'white'
-    ? (bgColor = 'bg-slate-700')
-    : (bgColor = 'bg-' + color + '-500');
 
-  const onClickHandler = (e) => {
-    e.preventDefault();
+  // const onClickHandler = (e) => {
+  //   e.preventDefault();
 
-    setSelected(e.target.value);
+  //   setSelected(e.target.value);
 
-    closeDropdownPopover() ;
-  }
+  //   closeDropdownPopover();
+  // };
 
   return (
     <>
-      <div className="flex flex-wrap" >
+      <div className="flex flex-wrap">
         <div className="w-full sm:w-6/12 md:w-4/12 px-4">
           <div className="relative inline-flex align-middle w-full">
             <button
@@ -70,7 +59,7 @@ const Dropdown = ({ color }) => {
               ref={popoverDropdownRef}
               className={
                 (dropdownPopoverShow ? 'block ' : 'hidden ') +
-                (color === 'white' ? 'bg-white ' : bgColor + ' ') +
+                (bgColor + ' ') +
                 'text-base z-50 float-left py-2 list-none text-left rounded shadow-lg mt-1'
               }
               style={{ minWidth: '12rem' }}
@@ -79,9 +68,9 @@ const Dropdown = ({ color }) => {
                 href="#pablo"
                 className={
                   'text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent ' +
-                  (color === 'white' ? ' text-slate-700' : 'text-white')
+                  ' text-slate-700'
                 }
-                onClick={onClickHandler}
+                onClick={onClick = ()=> onLanguage('python')}
               >
                 Python
               </a>
@@ -90,9 +79,9 @@ const Dropdown = ({ color }) => {
                 href="#pablo"
                 className={
                   'text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent ' +
-                  (color === 'white' ? ' text-slate-700' : 'text-white')
+                  ' text-slate-700'
                 }
-                onClick={onClickHandler}
+                onClick={onClick = ()=> onLanguage('c/c++')}
               >
                 C/C++
               </a>
@@ -101,9 +90,9 @@ const Dropdown = ({ color }) => {
                 href="#pablo"
                 className={
                   'text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent ' +
-                  (color === 'white' ? ' text-slate-700' : 'text-white')
+                  ' text-slate-700'
                 }
-                onClick={onClickHandler}
+                onClick={onClick = ()=> onLanguage('cs')}
               >
                 C#
               </a>
@@ -112,9 +101,9 @@ const Dropdown = ({ color }) => {
                 href="#pablo"
                 className={
                   'text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent ' +
-                  (color === 'white' ? ' text-slate-700' : 'text-white')
+                  ' text-slate-700'
                 }
-                onClick={onClickHandler}
+                onClick={onClick = ()=> onLanguage('java')}
               >
                 Java
               </a>
@@ -123,9 +112,9 @@ const Dropdown = ({ color }) => {
                 href="#pablo"
                 className={
                   'text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent ' +
-                  (color === 'white' ? ' text-slate-700' : 'text-white')
+                  ' text-slate-700'
                 }
-                onClick={onClickHandler}
+                onClick={onClick = ()=> onLanguage('javascipt')}
               >
                 JavaScipt
               </a>
@@ -134,9 +123,9 @@ const Dropdown = ({ color }) => {
                 href="#pablo"
                 className={
                   'text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent ' +
-                  (color === 'white' ? ' text-slate-700' : 'text-white')
+                  ' text-slate-700'
                 }
-                onClick={onClickHandler}
+                onClick={onClick = ()=> onLanguage('go')}
               >
                 Go
               </a>
@@ -148,10 +137,4 @@ const Dropdown = ({ color }) => {
   );
 };
 
-export default function DropdownRender() {
-  return (
-    <>
-      <Dropdown color="black" />
-    </>
-  );
-}
+export default Dropdown;
