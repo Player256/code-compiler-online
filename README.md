@@ -1,10 +1,4 @@
-# LeetCodeClone
 
-Full stack LeetCode clone built with React.js, Tailwind CSS and Node.
-
-### Setup
-
-```
 # open terminal
 cd server
 npm install
